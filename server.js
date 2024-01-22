@@ -4,6 +4,8 @@ app.set("view engine", "ejs")
 const database = require("./database.js")
 const port = 3000;
 
+
+
 const data = [
   {
     pollId: 1,
@@ -25,24 +27,32 @@ const data = [
       optionText: "Liverpool",
       vote: 42
       },
+      {
+      optionId: 4,
+      optionText: "Liverpool",
+      vote: 42
+      },
+      {
+      optionId: 5,
+      optionText: "Liverpool",
+      vote: 42
+      },    
     ]
   }
 ]
 
-
 app.get('/', (req, res) => {
-  // if(data.pollId === undefined ||data.question === undefined || options === undefined) {
-  //   res.status(404).render("index404.ejs")
-  //   return
-  // }
   res.render("index.ejs", {
     data
     
   })
 })
 
-
-
+app.get("/results", (req, res) => {
+  res.render("results.ejs", {
+    data
+  })
+})
 
 
 app.use("/public", express.static("public"))

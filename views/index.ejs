@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poll Question</title>
     <link href="/public/styles.css" rel="stylesheet" />
     <link rel="icon" href="/public/assets/favicon.ico">
 </head>
@@ -14,6 +14,8 @@
             <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
 
+
+                
                 <% data.forEach(data => {  %>
                     <!-- Getting the question and splitting it up so the last two words are bold -->
                     <% var buttonAmount = 2 %>
@@ -26,6 +28,7 @@
                     <div class="selectBtns"> 
                                                         <!-- LOADING UP PAGE DETAILS-->
                                                         
+
                     <button class="option" id="btn1" onclick="btn1_click()"><%= data.options[0].optionText %></button>
                     <button class="option" id="btn2" onclick="btn2_click()"><%= data.options[1].optionText %></button>
 
@@ -88,12 +91,8 @@
                     <% heightChange(); %>
                 <% }) %>
             
-
-
-
-
-            
             </div>
+
             <button class="submit" id= "submits"  onclick="submit_click()">SUBMIT</button>
            
         </div>

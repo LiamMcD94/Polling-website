@@ -9,6 +9,11 @@ const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 const btn5 = document.getElementById("btn5");
 const submit = document.getElementById("submits");
+const pollBar1 = document.getElementById("pollBar1");
+const pollBar2 = document.getElementById("pollBar2");
+const pollBar3 = document.getElementById("pollBar3");
+const pollBar4 = document.getElementById("pollBar4");
+const pollBar5 = document.getElementById("pollBar5");
 
 function btn1_click(){
     if (btn1_active == false) {
@@ -106,6 +111,19 @@ function btn5_click(){
         btn5.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
     }
 }
+
+function updatePollBars() {
+    
+
+
+
+
+
+
+    value = Math.round(value)
+}
+
+
 function submit_click(){
     if (btn1_active || btn2_active|| btn3_active || btn4_active || btn5_active) {
 

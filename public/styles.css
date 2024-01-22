@@ -12,122 +12,300 @@
     src: url(assets/Outfit/Outfit-VariableFont_wght.ttf) format('truetype');
 }
 
-body {
-    /* Hide scrollbar */
-    overflow: hidden; 
-    background-color: black;
-}   
+@media (min-width:  598px) {
+    body {
+        /* Hide scrollbar */
+        overflow: hidden; 
+        background-color: black;
+    }   
 
-h1 {
-    font-size: 50px;
-    color: white;
+    h1 {
+        font-size: 50px;
+        color: white;
+    }
+
+    /* make the div have no gaps at the edges of screen*/
+    div.fill-screen {
+        position:fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align:center;
+    }
+    /*set background image resolution to half it's image resolution 
+    and make it always fit the screen*/
+    img.fit-screen {
+    width: 3000px;
+    height: 2000px;
+    max-width: 100%;
+    max-height: 100%;
+    }
+
+    /*scaled down the logo to 6% of it's original size 3465 x 1136*/ 
+    img.logo {
+        width: 207px;
+        height: 68px;
+    }
+
+    #h1First {
+        margin-bottom: 0;
+        font-family: OutfitFont;
+        font-weight: 400;
+    }
+
+    #h1Second {
+        margin-top: 0;
+        margin-bottom: 60px;
+        font-family: OutfitFont;
+        font-weight: 700;
+    }
+
+    .pollBar {
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        height: 95px;
+        min-width: 65%;
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .pollBars__fill {
+        width: 50%;
+        height: 100%;
+        background: #996BF9;
+        border-radius: 5px;
+    }
+    
+    .pollBars__text {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-family: OutfitFont;
+        font-size:30px;
+        color: #ffffff;
+    }
+    .pollBars__name {
+        position: absolute;
+        top: 25%;
+        right: 50%;
+        transform: translateX(50%);
+        font-family: OutfitFont;
+        font-size:30px;
+        color: #ffffff;
+    }
+
+    .content {
+        position:absolute;
+        right: 20%;
+        left: 20%;
+        top: 10%;
+        max-height: 100%;
+
+    }
+
+    .option {
+        font-family: OutfitFont;
+        font-size: 30px;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        margin: 40px 2px;
+        line-height: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 95px;
+        min-width: 65%;
+        max-width: 75%;
+    }
+
+    .option:hover {
+        background-color: rgba(169, 133, 248, 0.466) !important;
+    }
+
+    .option:active {
+        background-color: rgba(126, 126, 126, 0.5) !important;
+    }
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% { opacity: 1;}
+    }
+
+
+    .submit {
+        font-family: OutfitFont;
+        font-weight: 450;
+        font-size: 30px;
+        color: #996BF9;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid #8C8C8C;
+        border-radius: 10px;
+        padding: 40px;
+        margin: 15px 2px;
+        line-height: 0px;
+        padding: 30px 32px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 95px;
+        min-width: 65%;
+        max-width: 75%;
+    }
+
+    .submit:hover {
+        background-color: rgba(247, 247, 247, 0.932) ;
+    }
+
+    .submit:active {
+        background-color: rgba(204, 204, 204, 0.932)  ;
+    }
+
+    .submit:disabled {
+        background-color: rgba(255, 255, 255, 0.2) ;
+        background-repeat: no-repeat;
+        border: none;
+        overflow: hidden;
+    }
+
 }
 
-/* make the div have no gaps at the edges of screen*/
-div.fill-screen {
-    position:fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    text-align:center;
-}
-/*set background image resolution to half it's image resolution 
-and make it always fit the screen*/
-img.fit-screen {
-width: 3000px;
-height: 2000px;
-max-width: 100%;
-max-height: 100%;
-}
+@media(max-width: 598px) { 
+    
+    
+    body {
+        /* Hide scrollbar */
+        overflow: hidden; 
+        background-color: black;
+    }   
+    
+    h1 {
+        font-size: 25px;
+        color: white;
+    }
+    
+    /* make the div have no gaps at the edges of screen*/
+    div.fill-screen {
+        position:fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align:center;
+    }
+    /*set background image resolution to half it's image resolution 
+    and make it always fit the screen*/
+    img.fit-screen {
+    width: 3000px;
+    height: 2000px;
+    max-width: 100%;
+    max-height: 100%;
+    }
+    
+    /*scaled down the logo to 40% of it's original size 3465 x 1136*/ 
+    img.logo {
+        width: 40%;
+        height: 40%;
+    }
+    
+    #h1First {
+        margin-bottom: 0;
+        font-family: OutfitFont;
+        font-weight: 400;
+    }
+    
+    #h1Second {
+        margin-top: 0;
+        margin-bottom: 60px;
+        font-family: OutfitFont;
+        font-weight: 700;
+    }
+    
+    .content {
+        position:absolute;
+        right: 20%;
+        left: 20%;
+        top: 10%;
+    }
+    
+    .option {
+        font-family: OutfitFont;
+        font-size: 20px;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.3);
+        background:  #996BF9;
+        border: 2px solid #8C8C8C;
+        border-radius: 10px;
+        margin: 20px 2px;
+        line-height: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 60px;
+        min-width: 65%;
+        max-width: 75%;
+    }
 
-/*scaled down the logo to 6% of it's original size 3465 x 1136*/ 
-img.logo {
-    width: 207px;
-    height: 68px;
-}
+    .pollBar {
+        background-color: rgba(255, 255, 255, 0.3);
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        height: 30px;
+        min-width: 65%;
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-#h1First {
-    margin-bottom: 0;
-    font-family: OutfitFont;
-    font-weight: 400;
-}
-
-#h1Second {
-    margin-top: 0;
-    margin-bottom: 60px;
-    font-family: OutfitFont;
-    font-weight: 700;
-}
-
-.content {
-    position:absolute;
-    right: 30%;
-    left: 30%;
-    top: 10%;
-}
-
-.option {
-    font-family: OutfitFont;
-    font-size: 30px;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    margin: 40px 2px;
-    line-height: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 95px;
-    min-width: 65%;
-    max-width: 75%;
-}
-
-.option:hover {
-    background-color: rgba(169, 133, 248, 0.466) !important;
-}
-
-.option:active {
-    background-color: rgba(126, 126, 126, 0.5) !important;
-}
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% { opacity: 1;}
-}
-
-
-.submit {
-    font-family: OutfitFont;
-    font-weight: 450;
-    font-size: 30px;
-    color: #996BF9;
-    background-color: rgb(255, 255, 255);
-    border: 2px solid #8C8C8C;
-    border-radius: 10px;
-    padding: 40px;
-    margin: 15px 2px;
-    line-height: 0px;
-    padding: 30px 32px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 95px;
-    min-width: 65%;
-    max-width: 75%;
-}
-
-.submit:hover {
-    background-color: rgba(247, 247, 247, 0.932) ;
-}
-
-.submit:active {
-    background-color: rgba(204, 204, 204, 0.932)  ;
-}
-
-.submit:disabled {
-    background-color: rgba(255, 255, 255, 0.2) ;
-    background-repeat: no-repeat;
-    border: none;
-    overflow: hidden;
+    #poll_fill1 {
+        width: 50%;
+        height: 100%;
+        background: #996BF9;
+    }
+    
+    .option:active {
+        background-color: rgba(126, 126, 126, 0.5) !important;
+    }
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% { opacity: 1;}
+    }
+    
+    
+    .submit {
+        font-family: OutfitFont;
+        font-weight: 450;
+        font-size: 30px;
+        color: #996BF9;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid #8C8C8C;
+        border-radius: 10px;
+        padding: 40px;
+        margin: 15px 2px;
+        line-height: 0px;
+        padding: 30px 32px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 95px;
+        min-width: 65%;
+        max-width: 75%;
+    }
+    
+    .submit:active {
+        background-color: rgba(204, 204, 204, 0.932)  ;
+    }
+    
+    .submit:disabled {
+        background-color: rgba(255, 255, 255, 0.2) ;
+        background-repeat: no-repeat;
+        border: none;
+        overflow: hidden;
+    }
 }
