@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dizplai Technical Test</title>
+    <title>data</title>
     <link href="/public/styles.css" rel="stylesheet" />
     <link rel="icon" href="/public/assets/favicon.ico">
 </head>
@@ -13,18 +13,89 @@
         <div class="content">
             <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
-                <h1 id ="h1First" value="Who will win the">Who will win the<h1 id="h1Second" value = "Premier Leauge?">prem
+
+                <% data.forEach(data => {  %>
+                    <!-- Getting the question and splitting it up so the last two words are bold -->
+                    <% var buttonAmount = 2 %>
+                    <% var question_title = data.question.split(" "); %>
+                    <% var testFirst = question_title.slice (0, -2).join(" "); %>
+                    <% var testLast = question_title.splice(question_title.length - 2).join (" "); %>
+                    <h1 id="h1First"><%= testFirst %></h1>
+                    <h1 id="h1Second"><%= testLast %></h1>
+                    </div>
+                    <div class="selectBtns"> 
+                                                        <!-- LOADING UP PAGE DETAILS-->
+                                                        
+                    <button class="option" id="btn1" onclick="btn1_click()"><%= data.options[0].optionText %></button>
+                    <button class="option" id="btn2" onclick="btn2_click()"><%= data.options[1].optionText %></button>
+
+                    <!-- checking if there are more than minimum options-->
+                    <% if(data.options[2] === undefined) {%>
+                        <% console.log("button 3 is undefined"); %>
+                    <% } else { %>
+                        <button class="option" id="btn3" onclick="btn3_click()"><%= data.options[2].optionText %></button>
+                        <% buttonAmount++ %>
+                        <% }%>
+
+                    <% if(data.options[3] === undefined) {%>
+                        <% console.log("button 4 is undefined"); %>
+                    <% } else { %>
+                        <button class="option" id="btn4" onclick="btn3_click()"><%= data.options[3].optionText %></button>
+                        <% buttonAmount++ %>
+                    <% }%>
+
+                    <% if(data.options[4] === undefined) {%>
+                        <% console.log("button 5 is undefined"); %>
+                    <% } else { %>
+                        <button class="option" id="btn5" onclick="btn3_click()"><%= data.options[4].optionText %></button>
+                        <% buttonAmount++ %>
+                    <% } %>
+
+                    <% function heightChange() { %>
+                        <% if (buttonAmount == 3) { %>
+                            <style>
+                                .option {
+                                    height: 98px;
+                                }
+                                .submit {
+                                    height: 98px;
+                                }
+                            </style>
+                        <% } %>
+
+                        <% if (buttonAmount == 4) { %>
+                            <style>
+                                .option {
+                                    height: 90px;
+                                }
+                                .submit {
+                                    height: 90px;
+                                }
+                            </style>
+                        <% } %>
+
+                        <% if (buttonAmount == 5) { %>
+                            <style>
+                                .option {
+                                    height: 60px;
+                                }
+                                .submit {
+                                    height: 60px;
+                                }
+                            </style>
+                        <% } %>
+                    <% }%>
+                    <% heightChange(); %>
+                <% }) %>
+            
+
+
+
+
+            
             </div>
-            <div class="selectBtns"> 
-                <input type="radio" class=""
-
-
-                <input type="button" class="option" id="btn1" value="Manchester City" onclick="btn1_click()">
-                <input type="button" class="option" id="btn2" value="Arsenal" onclick="btn2_click()">
-                <input type="button" class="option" id="btn3" value="Liverpool" onclick="btn3_click()">
-
-            </div>
-            <input type="button" class="submit" value="SUBMIT" onclick="submit_click()">
+            <button class="submit" id= "submits"  onclick="submit_click()">SUBMIT</button>
+           
         </div>
     </div>
     <script src="/public/script.js"></script>

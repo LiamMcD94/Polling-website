@@ -1,13 +1,8 @@
 const express = require('express');
 const app = express();
 app.set("view engine", "ejs")
-const database = require("./data.js")
+const database = require("./database.js")
 const port = 3000;
-
-app.get('/', (req, res) => {
-  res.render("index.ejs")
-})
-
 
 const data = [
   {
@@ -30,26 +25,25 @@ const data = [
       optionText: "Liverpool",
       vote: 42
       },
-      {
-        optionId: 3,
-        optionText: "Liverpool",
-        vote: 42
-        }
     ]
   }
 ]
 
-app.get("/data", (req, res) => {
-  res.render("data.ejs", {
+
+app.get('/', (req, res) => {
+  // if(data.pollId === undefined ||data.question === undefined || options === undefined) {
+  //   res.status(404).render("index404.ejs")
+  //   return
+  // }
+  res.render("index.ejs", {
     data
+    
   })
 })
 
-app.get("/data/:id", (req, res) => {
-  const id = +req.params.id
-  const data = database.getData(id)
-  res.send(id)
-})
+
+
+
 
 app.use("/public", express.static("public"))
 
