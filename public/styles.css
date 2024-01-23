@@ -11,7 +11,7 @@
     font-family: OutfitFont;
     src: url(assets/Outfit/Outfit-VariableFont_wght.ttf) format('truetype');
 }
-
+/* desktop styling*/
 @media (min-width:  598px) {
     body {
         /* Hide scrollbar */
@@ -65,20 +65,22 @@
         background-color: rgba(255, 255, 255, 0.3);
         border: 2px solid #ffffff;
         border-radius: 5px;
-        height: 95px;
+        height: 80px;
+        margin-bottom: 20px;
         min-width: 65%;
         max-width: 75%;
         margin-left: auto;
         margin-right: auto;
         overflow: hidden;
         position: relative;
+
     }
 
     .pollBars__fill {
-        width: 50%;
+        width: 0%;
         height: 100%;
         background: #996BF9;
-        border-radius: 5px;
+        
     }
     
     .pollBars__text {
@@ -176,6 +178,7 @@
 
 }
 
+/* Mobile styling*/
 @media(max-width: 598px) { 
     
     
@@ -255,20 +258,43 @@
     .pollBar {
         background-color: rgba(255, 255, 255, 0.3);
         border: 2px solid #ffffff;
-        border-radius: 10px;
-        height: 30px;
+        border-radius: 5px;
+        height: 80px;
+        margin-bottom: 20px;
         min-width: 65%;
         max-width: 75%;
         margin-left: auto;
         margin-right: auto;
+        overflow: hidden;
+        position: relative;
+
     }
 
-    #poll_fill1 {
-        width: 50%;
+    .pollBars__fill {
+        width: 0%;
         height: 100%;
         background: #996BF9;
+        
     }
     
+    .pollBars__text {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-family: OutfitFont;
+        font-size:15px;
+        color: #ffffff;
+    }
+    .pollBars__name {
+        position: absolute;
+        top: 25%;
+        right: 50%;
+        transform: translateX(50%);
+        font-family: OutfitFont;
+        font-size:15px;
+        color: #ffffff;
+    }
     .option:active {
         background-color: rgba(126, 126, 126, 0.5) !important;
     }

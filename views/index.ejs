@@ -3,17 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Gets the pollName of this poll and uses it as the title -->
     <title><%= data.pollName %></title>
     <link href="/public/styles.css" rel="stylesheet" />
+    <!-- There was no favicon so created one myself -->
     <link rel="icon" href="/public/assets/favicon.ico">
 </head>
 <body>
     <div class='fill-screen'>
-        <img class='fit-screen'src='/public/assets/background.jpg'>
+        <img class='fit-screen' src='/public/assets/background.jpg'>
         <div class="content">
-            <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
+            <img class='logo' src= "/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
-
+                    <!-- Code below is done by using EJS, this allows me to work JS on the file itself and when the file is compiled by express it will convert the
+                         .EJS file into a HTML with all the JS code not visible but working -->
                 
                     <!-- Getting the question and splitting it up so the last two words are bold -->
                     <% var buttonAmount = 0 %>
@@ -24,13 +27,13 @@
                     <h1 id="h1Second"><%= testLast %></h1>
                     </div>
                     <div class="selectBtns"> 
-                                                        <!-- LOADING UP PAGE DETAILS-->
-                                                        
+                                                        <!-- LOADING UP PAGE BUTTONS-->
+                    <!-- creating the buttons for user to click on -->
                     <% for(let i = 0; i <data.options.length; i++) { %>
                        <button class="option" id="btn<%=i%>" onclick="btn<%=i%>_click()"><%= data.options[i].optionText %></button> 
                        <% buttonAmount++ %>
                     <% } %>
-                    
+                     <!-- Depending on the amount of buttons, change height of "both "options" and "submit" to allow buttons to comfortably fit on screen -->
                     <% function heightChange() { %>
                         <% if (buttonAmount == 3) { %>
                             <style>
@@ -78,11 +81,12 @@
                     <% heightChange(); %>
             
             </div>
-
-            <button class="submit" id= "submits"  onclick="submit_click()">SUBMIT</button>
+            <!-- geting pollId for URL redirect after submit button is clicked -->
+            <% var pollId = data.pollId; %>
+            <button class="submit" id= "submits"  onclick="submit_click(<%= pollId %>) ">SUBMIT</button>
            
         </div>
     </div>
-    <script src="/public/script.js"></script>
+    <script src="/public/script.js"> url</script>
 </body>
 </html>

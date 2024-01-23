@@ -18,9 +18,6 @@ app.get("/:id", (req, res) => {
   res.render("index.ejs", {
     data
   })
-  res.render("index.ejs", {
-    data
-  });
 })
 
 app.get("/results", (req, res) => {

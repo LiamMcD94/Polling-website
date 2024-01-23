@@ -13,14 +13,16 @@
         <div class="content">
             <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
+                    <!-- Code below is done by using EJS, this allows me to work JS on the file itself and when the file is compiled by express it will convert the
+                         .EJS file into a HTML with all the JS code not visible but working -->
 
-                    <% i = 0; %>
                     <!-- Getting the question and splitting it up so the last two words are bold -->
                     <% var vote1 = 0; %>
                     <% var vote2 = 0; %>
                     <% var vote3 = 0; %>
                     <% var vote4 = 0; %>
                     <% var vote5 = 0; %>
+                    <% var barAmount = 0 %>
 
                     <% vote1 = vote.votes[0].result; %>
                     <% vote2 = vote.votes[1].result; %>
@@ -31,39 +33,68 @@
                     <% if(vote.votes[4] === undefined){ } else { %>
                     <%  vote5 = vote.votes[4].result; } %>
                     <% const voteNumberTotal = vote1 + vote2 + vote3 + vote4 + vote5;  %>
-                    <% console.log("total number: " + voteNumberTotal); %>
-
-                    <% var vote1Per =  Math.round((100 * vote1) / voteNumberTotal); %>
-                    <% var vote2Per =  Math.round((100 * vote2) / voteNumberTotal);%>
-                    <% var vote3Per =  Math.round((100 * vote3) / voteNumberTotal); %>
-                    <% var vote4Per =  Math.round((100 * vote4) / voteNumberTotal);%>
-                    <% var vote5Per = Math.round((100 * vote5) / voteNumberTotal); %>
-                    <% console.log(vote1Per, vote2Per,  vote3Per,  vote4Per,  vote5Per) %>
                     
-                    <% %>
-                    <% %>
-                    <% %>
-                    <% %>
-                    <% %>
-                    <% %>
+                    <% var sorts = [];%>
         
-                    <%console.log(vote)%>
-                    <h1 id="h1First"> Thank you for</h1>
-                    <h1 id="h1Second">your response</h1>
-                    </div>
-                    <div class="selectBtns"> 
-                                                        <!-- LOADING UP PAGE DETAILS-->
-                                                        
+                    <% for(let i = 0; i < vote.votes.length; i++) { %>
+                        <% var a = {name: vote.votes[i].resultText, votes: vote.votes[i].result }%>
+                        <% sorts.push(a); %>
+                    <% } %>
 
-                    <div class="pollBar" id="pollBar1">
-                        <script>src.btn1_click</script>
-                        <div class="pollBars__fill" id="poll_fill1"></div>
-                        <div class="pollBars__text" id="poll_text1">20%</div>
-                        <div class="pollBars__name" id="poll_name1">Manchester city</div>
-                    </div>             
+                    <% sorts.sort(function(a,b){ return b.votes - a.votes; });%>
+
+            <h1 id="h1First"> Thank you for</h1>
+            <h1 id="h1Second">your response</h1>
+            </div>
+
+            <div class="selectBtns"> 
+                                                <!-- LOADING UP PAGE DETAILS-->
+                <!-- Creates the results bar -->
+                <% for(let i = 0; i <sorts.length; i++) { %>
+                    <!-- Converts vote number of each entry into a percentage -->
+                    <% var votePoll = Math.round((100 *sorts[i].votes) / voteNumberTotal) %>
+                    <!-- container for each bar, this acts as the background colour and determins the size of the bar -->
+                    <div class="pollBar">
+                        <div class="pollBars__fill" id="poll_fill<%=i%>" style="width: <%= votePoll %>%"></div>
+                        <div class="pollBars__text" id="poll_text<%=i%>"><%= votePoll %> %</div>
+                        <div class="pollBars__name" id="poll_name<%=i%>"><%= sorts[i].name %></div>
+                    </div> 
+                    <!-- Increments "barAmount" for next part of the code after loop -->
+                    <% barAmount++ %>
+                    <% } %>
+                    <!-- Depending on the amount of bars present, change height of "pollBar" to make bars comfortably fit on screen -->
+                    <% function heightChange() { %>
+                    <% if (barAmount == 3) { %>
+                        <style>
+                            .pollBar {
+                                height: 98px;
+                            }
+
+                        </style>
+                    <% } %>
+
+                    <% if (barAmount == 4) { %>
+                        <style>
+                            .pollBar {
+                                height: 70px;
+                            }
+                        </style>
+                    <% } %>
+
+                    <% if (barAmount == 5) { %>
+                        <style>
+                            .pollBar {
+                                height: 60px;
+                            }
+                        </style>
+                    <% } %>
+                <% }%>
+                <!-- activate code above -->
+                <% heightChange(); %>   
             </div>
         </div>
     </div>
-    <script src="/public/script.js"></script>
+</div>
+<script src="/public/script.js"></script>
 </body>
 </html>

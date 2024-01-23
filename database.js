@@ -28,8 +28,31 @@ const data = [
 },
 {
     pollId: 2,
-    pollName: "fake",
-    question: "fake",
+    pollName: "Premier League Winner",
+    question: "Who will win the Premier League?",
+    options: [
+    {
+    optionId: 1,
+    optionText: "Manchester City",
+    },
+    {
+    optionId: 2,
+    optionText: "Arsenal",
+    },
+    {
+    optionId: 3,
+    optionText: "Liverpool",
+    },
+    {
+    optionId: 4,
+    optionText: "Hull",
+    }    
+    ]
+},
+{
+    pollId: 3,
+    pollName: "Premier League Winner",
+    question: "Who will win the Premier League?",
     options: [
     {
     optionId: 1,
@@ -57,17 +80,17 @@ const votes = [
     result: 35
     },
     {
-        optionId: 2,
+    optionId: 2,
     resultText: "Arsenal",
     result: 23
     },
     {
-        optionId: 3,
+    optionId: 3,
     resultText: "Liverpool",
     result: 68
     },
     {
-        optionId: 4,
+    optionId: 4,
     resultText: "Hull",
     result: 31
     },
@@ -95,9 +118,34 @@ votes: [
     voteId: 3,
     resultText: "Liverpool",
     result: 68
-    }  
+    },
+    {
+    voteId: 2,
+    resultText: "Hull",
+    result: 25
+    }, 
     ]
 },
+{
+pollId: 3,
+votes: [
+    {
+    voteId: 1,
+    resultText: "Manchester City",
+    result: 35
+    },
+    {
+    voteId: 2,
+    resultText: "Arsenal",
+    result: 10
+    },
+    {
+    voteId: 3,
+    resultText: "Liverpool",
+    result: 68
+    }  
+    ]
+}
 ];
 
 function getData(id) {
