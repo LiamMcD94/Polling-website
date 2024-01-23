@@ -14,39 +14,42 @@
             <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
 
-                <% data.forEach(data => {  %>
+                    <% i = 0; %>
                     <!-- Getting the question and splitting it up so the last two words are bold -->
-                    <% var buttonAmount = 2 %>
-                    <% var question_title = data.question.split(" "); %>
-                    <% var testFirst = question_title.slice (0, -2).join(" "); %>
-                    <% var testLast = question_title.splice(question_title.length - 2).join (" "); %>
                     <% var vote1 = 0; %>
                     <% var vote2 = 0; %>
                     <% var vote3 = 0; %>
                     <% var vote4 = 0; %>
                     <% var vote5 = 0; %>
-                    <% vote1 = data.options[0].vote; %>
-                    <% vote2 = data.options[1].vote; %>
-                    <% if(data.options[2] === undefined){ } else {%>
-                    <%  vote3 = data.options[2].vote; } %>
-                    <% if(data.options[3] === undefined){ } else { %>
-                    <%  vote4 = data.options[3].vote; } %>
-                    <% if(data.options[4] === undefined){ } else { %>
-                    <%  vote5 = data.options[4].vote; } %>
+
+                    <% vote1 = vote.votes[0].result; %>
+                    <% vote2 = vote.votes[1].result; %>
+                    <% if(vote.votes[2] === undefined){ } else {%>
+                    <%  vote3 = vote.votes[2].result; } %>
+                    <% if(vote.votes[3] === undefined){ } else { %>
+                    <%  vote4 = vote.votes[3].result; } %>
+                    <% if(vote.votes[4] === undefined){ } else { %>
+                    <%  vote5 = vote.votes[4].result; } %>
                     <% const voteNumberTotal = vote1 + vote2 + vote3 + vote4 + vote5;  %>
                     <% console.log("total number: " + voteNumberTotal); %>
-                    <% var vote1Per = (100 * vote1) / voteNumberTotal; %>
-                    <% var vote2Per = (100 * vote2) / voteNumberTotal;%>
-                    <% var vote3Per = (100 * vote3) / voteNumberTotal; %>
-                    <% var vote4Per = (100 * vote4) / voteNumberTotal;%>
-                    <% var vote5Per = (100 * vote5) / voteNumberTotal; %>
+
+                    <% var vote1Per =  Math.round((100 * vote1) / voteNumberTotal); %>
+                    <% var vote2Per =  Math.round((100 * vote2) / voteNumberTotal);%>
+                    <% var vote3Per =  Math.round((100 * vote3) / voteNumberTotal); %>
+                    <% var vote4Per =  Math.round((100 * vote4) / voteNumberTotal);%>
+                    <% var vote5Per = Math.round((100 * vote5) / voteNumberTotal); %>
+                    <% console.log(vote1Per, vote2Per,  vote3Per,  vote4Per,  vote5Per) %>
                     
-                    
-
-
-
-                    <h1 id="h1First"><%= testFirst %></h1>
-                    <h1 id="h1Second"><%= testLast %></h1>
+                    <% %>
+                    <% %>
+                    <% %>
+                    <% %>
+                    <% %>
+                    <% %>
+        
+                    <%console.log(vote)%>
+                    <h1 id="h1First"> Thank you for</h1>
+                    <h1 id="h1Second">your response</h1>
                     </div>
                     <div class="selectBtns"> 
                                                         <!-- LOADING UP PAGE DETAILS-->
@@ -57,10 +60,7 @@
                         <div class="pollBars__fill" id="poll_fill1"></div>
                         <div class="pollBars__text" id="poll_text1">20%</div>
                         <div class="pollBars__name" id="poll_name1">Manchester city</div>
-                    </div>    
-
-                <% }) %>
-            
+                    </div>             
             </div>
         </div>
     </div>

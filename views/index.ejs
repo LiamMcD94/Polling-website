@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Poll Question</title>
+    <title><%= data.pollName %></title>
     <link href="/public/styles.css" rel="stylesheet" />
     <link rel="icon" href="/public/assets/favicon.ico">
 </head>
@@ -14,11 +14,9 @@
             <img class='logo' src="/public/assets/logo.png" alt="Dizplai logo">
             <div class ="question">
 
-
                 
-                <% data.forEach(data => {  %>
                     <!-- Getting the question and splitting it up so the last two words are bold -->
-                    <% var buttonAmount = 2 %>
+                    <% var buttonAmount = 0 %>
                     <% var question_title = data.question.split(" "); %>
                     <% var testFirst = question_title.slice (0, -2).join(" "); %>
                     <% var testLast = question_title.splice(question_title.length - 2).join (" "); %>
@@ -28,32 +26,11 @@
                     <div class="selectBtns"> 
                                                         <!-- LOADING UP PAGE DETAILS-->
                                                         
-
-                    <button class="option" id="btn1" onclick="btn1_click()"><%= data.options[0].optionText %></button>
-                    <button class="option" id="btn2" onclick="btn2_click()"><%= data.options[1].optionText %></button>
-
-                    <!-- checking if there are more than minimum options-->
-                    <% if(data.options[2] === undefined) {%>
-                        <% console.log("button 3 is undefined"); %>
-                    <% } else { %>
-                        <button class="option" id="btn3" onclick="btn3_click()"><%= data.options[2].optionText %></button>
-                        <% buttonAmount++ %>
-                        <% }%>
-
-                    <% if(data.options[3] === undefined) {%>
-                        <% console.log("button 4 is undefined"); %>
-                    <% } else { %>
-                        <button class="option" id="btn4" onclick="btn3_click()"><%= data.options[3].optionText %></button>
-                        <% buttonAmount++ %>
-                    <% }%>
-
-                    <% if(data.options[4] === undefined) {%>
-                        <% console.log("button 5 is undefined"); %>
-                    <% } else { %>
-                        <button class="option" id="btn5" onclick="btn3_click()"><%= data.options[4].optionText %></button>
-                        <% buttonAmount++ %>
+                    <% for(let i = 0; i <data.options.length; i++) { %>
+                       <button class="option" id="btn<%=i%>" onclick="btn<%=i%>_click()"><%= data.options[i].optionText %></button> 
+                       <% buttonAmount++ %>
                     <% } %>
-
+                    
                     <% function heightChange() { %>
                         <% if (buttonAmount == 3) { %>
                             <style>
@@ -68,19 +45,29 @@
 
                         <% if (buttonAmount == 4) { %>
                             <style>
+                                #h1Second {
+                                    margin-bottom: 30px;
+                                }
                                 .option {
-                                    height: 90px;
+                                    height: 70px;
                                 }
                                 .submit {
-                                    height: 90px;
+                                    height: 70px;
                                 }
                             </style>
                         <% } %>
 
                         <% if (buttonAmount == 5) { %>
                             <style>
+                                #h1Second {
+                                margin-bottom: 30px;
+                                }
                                 .option {
-                                    height: 60px;
+                                height: 60px;
+                                margin-left: auto;
+                                margin-right: auto;
+                                margin-top: 20px;
+                                margin-bottom: 20px;
                                 }
                                 .submit {
                                     height: 60px;
@@ -89,7 +76,6 @@
                         <% } %>
                     <% }%>
                     <% heightChange(); %>
-                <% }) %>
             
             </div>
 
