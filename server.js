@@ -46,5 +46,6 @@ app.post("/results/:resID", (req, res) => {
 app.use("/public", express.static("public"))
 
 app.listen(port, () => {
-  console.log('Example app is listening at http://localhost:' + port + 'please inser');
+  console.log('Example app is listening at http://localhost:' + port + "/-INSERT NUMBER-");
+  console.log('Please insert poll number.');
 });
