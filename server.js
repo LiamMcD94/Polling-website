@@ -37,7 +37,6 @@ app.post("/results/:resID", (req, res) => {
     res.status(404).render("index404.ejs")
     return
   }
-  console.log(vote)
   res.render("results.ejs", {
     vote
   })
