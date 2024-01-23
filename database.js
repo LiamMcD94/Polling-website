@@ -70,7 +70,7 @@ const data = [
 }
 ];
   
-const votes = [
+let votes = [
 {
     pollId: 1,
     votes: [
@@ -120,7 +120,7 @@ votes: [
     result: 68
     },
     {
-    voteId: 2,
+    voteId: 4,
     resultText: "Hull",
     result: 25
     }, 
@@ -157,3 +157,11 @@ function getVotes(id) {
     return votes.find(votes => votes.pollId === id);
 }
 exports.getVotes = getVotes
+
+function addVote(vote) {
+    const id = +vote.pollId
+    const addVote = +vote.vote
+    votes[id -1].votes[addVote].result++
+    console.log("adding vote for " + votes[id -1].votes[vote.vote].resultText + ": " + votes[id -1].votes[vote.vote].result)
+}
+exports.addVote = addVote

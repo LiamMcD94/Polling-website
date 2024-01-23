@@ -28,9 +28,11 @@
                     </div>
                     <div class="selectBtns"> 
                                                         <!-- LOADING UP PAGE BUTTONS-->
+
+                   <div id="voteform" style="display: none";></div>
                     <!-- creating the buttons for user to click on -->
                     <% for(let i = 0; i <data.options.length; i++) { %>
-                       <button class="option" id="btn<%=i%>" onclick="btn<%=i%>_click()"><%= data.options[i].optionText %></button> 
+                       <button class="option" id="btn<%=i%>" onclick="btn<%=i%>_click(<%=i%>)"><%= data.options[i].optionText %></button> 
                        <% buttonAmount++ %>
                     <% } %>
                      <!-- Depending on the amount of buttons, change height of "both "options" and "submit" to allow buttons to comfortably fit on screen -->
@@ -83,10 +85,13 @@
             </div>
             <!-- geting pollId for URL redirect after submit button is clicked -->
             <% var pollId = data.pollId; %>
-            <button class="submit" id= "submits"  onclick="submit_click(<%= pollId %>) ">SUBMIT</button>
+            <button class="submit" id= "submits"  onclick="submit_click(<%= pollId %>)">SUBMIT</button>
            
         </div>
     </div>
     <script src="/public/script.js"> url</script>
 </body>
-</html>
+</html>    // vote.findOne({'optionId': 1}).then(vote => {
+    //     result = result++;
+    //     return vote.save();
+    // });

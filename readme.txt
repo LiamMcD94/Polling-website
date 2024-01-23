@@ -1,6 +1,7 @@
 HOW TO RUN - to run this code, open up console and type in "npm run dev". this will host app in localhost:3000. 
 Accessing the polls in database.js - insert the number at the end of url example: http://localhost:3000/1
 current availible poll numbers: 1, 2, 3
+observe terminal for voting additions to the users selected option.
 
 TESTING
 all tests are used by manually editing files and checking the dev tools in a browser
